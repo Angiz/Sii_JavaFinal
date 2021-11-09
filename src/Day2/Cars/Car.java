@@ -1,11 +1,14 @@
 package Day2.Cars;
 
+import java.util.Arrays;
+
 public class Car {
     private int amountOfWheels;
     private int amountOfPassengers;
     private float powerOfEngine;
     private String colour;
     Colours[] colours = Colours.values();
+    String colourStringValues[] = new String[colours.length];
 
     public Car(int amountOfWheels, int amountOfPassengers) {
         if (amountOfWheels < 4) {
@@ -44,19 +47,28 @@ public class Car {
         return colour;
     }
 
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
     public void setAmountOfPassengers(int amountOfPassengers) {
         this.amountOfPassengers = amountOfPassengers;
     }
     public String stringComparer(String firstString) {
+        //creating new table with colour string values
+        for (int i=0; i<colours.length; i++) {
+            colourStringValues[i] = colours[i].getProperString();
+        }
         for (Colours c: colours) {
             if (firstString.equals(c.getProperString())) {
                 firstString = c.getProperString();
-            }
-            else {
-                System.out.println("Bad value");
+                break;
             }
         }
-    return firstString;
+        if (!(Arrays.asList(colourStringValues).contains(firstString))) {
+            firstString = colours[colours.length-1].getProperString();
+        }
+        return firstString;
     }
 
 

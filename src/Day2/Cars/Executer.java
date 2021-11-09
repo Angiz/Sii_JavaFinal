@@ -20,8 +20,9 @@ public class Executer {
         Car car = new Car(7, 5);
         Car truck = new Car(12, 2, -125.34f);
         Car car2 = new Car(4, 5, -143.55f, Colours.BLUE.getProperString());
-        Car scannerCar = new Car(amountOfWheels, amountOfPassengers, powerOfEngine, colour);
-        System.out.println(scannerCar.stringComparer(colour));
+        Car scannerCar = new Car(amountOfWheels, amountOfPassengers, powerOfEngine);
+        String newColour = scannerCar.stringComparer(colour);
+        scannerCar.setColour(newColour);
 
 
         System.out.println(scannerCar);
