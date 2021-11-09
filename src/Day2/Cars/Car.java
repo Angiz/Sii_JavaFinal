@@ -35,14 +35,30 @@ public class Car {
         this.colour = colour;
     }
 
+    //constructor for automatic cars
     public Car(int i) {
-        this.amountOfWheels = (int) (Math.random() * (12-4)+4);
+        this.amountOfWheels = (int) ((Math.random() * (12-4)+4));
+        if (amountOfWheels % 2 != 0) {
+            amountOfWheels++;
+        }
         this.amountOfPassengers = (int)(Math.random() * (40-2)+2);
         this.powerOfEngine = (int) (Math.random() * (120-100) + 100);
         this.vinNumber = String.format("VJX0%05d23E", i);
         this.capacityOfEngine = (int) (Math.random() * (120-100) + 100);
         this.registrationNumber = String.format("ZS%02dA", i);
         this.carryingCapacity = (int) (Math.random() * (120-100) + 100);
+        coloursCreator();
+        this.colour = colourStringValues[(int)(Math.random() * (colours.length))];
+    }
+
+    //constructor for manual cars
+    public Car(int amountOfWheels, int amountOfPassengers, int powerOfEngine,  int valuesForVin, int valuesForRegistrationNumbers,
+               int capacityOfEngine,  int carryingCapacity) {
+        this(amountOfWheels, amountOfPassengers, powerOfEngine);
+        this.vinNumber = String.format("VJX0%05d23E", valuesForVin);
+        this.capacityOfEngine = capacityOfEngine;
+        this.registrationNumber = String.format("ZS%02dA", valuesForRegistrationNumbers);
+        this.carryingCapacity = carryingCapacity;
     }
 
 
@@ -97,6 +113,13 @@ public class Car {
             firstString = colours[colours.length-1].getProperString();
         }
         return firstString;
+    }
+
+    public String[] coloursCreator() {
+        for (int i=0; i<colours.length; i++) {
+            colourStringValues[i] = colours[i].getProperString();
+        }
+        return colourStringValues;
     }
 
     @Override

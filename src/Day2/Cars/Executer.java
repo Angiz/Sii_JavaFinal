@@ -6,14 +6,20 @@ public class Executer {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Car car = new Car(7, 5);
-        Car truck = new Car(12, 2, -125);
-        Car car2 = new Car(4, 5, -143, Colours.BLUE.getProperString());
-        //car.vimCreator(9);
-        //car.registrationNumberCreator(101);
-        //System.out.println(car.setPowerOfEngine());
-        //System.out.println(manualCarCreator(scanner));
-        automaticCarCreator(5, 10000);
+        System.out.println("What would you like to do?\n1. Manually add a car.\n2. Automatic generate cars.");
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.println(manualCarCreator(scanner));
+                break;
+            case 2:
+                System.out.println("Enter a number of cars: ");
+                int numberOfCars = scanner.nextInt();
+                automaticCarCreator(0, numberOfCars);
+                break;
+            default:
+                break;
+        }
     }
 
     public static Car manualCarCreator(Scanner sc) {
@@ -25,11 +31,19 @@ public class Executer {
         int powerOfEngine = sc.nextInt();
         System.out.println("Colour: ");
         String colour = sc.next().toLowerCase();
+        System.out.println("Values for VIN: ");
+        int valuesForVin = sc.nextInt();
+        System.out.println("Values for registration number: ");
+        int valuesForRegistrationNumber = sc.nextInt();
+        System.out.println("Capacity of engine: ");
+        int capacityOfEngine = sc.nextInt();
+        System.out.println("Carrying capacity: ");
+        int carryingCapacity = sc.nextInt();
 
-        Car scannerCar = new Car(amountOfWheels, amountOfPassengers, powerOfEngine);
+        Car scannerCar = new Car(amountOfWheels, amountOfPassengers, powerOfEngine, valuesForVin,
+                valuesForRegistrationNumber, capacityOfEngine, carryingCapacity);
         String newColour = scannerCar.stringComparer(colour);
         scannerCar.setColour(newColour);
-
         return scannerCar;
     }
 
@@ -39,7 +53,6 @@ public class Executer {
             cars[i] = new Car(i);
             System.out.println(cars[i]);
         }
-
     }
 
 }
