@@ -9,6 +9,10 @@ public class Car {
     private String colour;
     Colours[] colours = Colours.values();
     String colourStringValues[] = new String[colours.length];
+    private String vinNumber;
+    private int capacityOfEngine;
+    private String registrationNumber;
+    private int carryingCapacity;
 
     public Car(int amountOfWheels, int amountOfPassengers) {
         if (amountOfWheels < 4) {
@@ -29,6 +33,37 @@ public class Car {
     public Car(int amountOfWheels, int amountOfPassengers, float powerOfEngine, String colour) {
         this(amountOfWheels, amountOfPassengers, powerOfEngine);
         this.colour = colour;
+    }
+
+    public Car(int amountOfWheels, int amountOfPassengers, float powerOfEngine, String colour, Colours[] colours,
+               String[] colourStringValues, String vinNumber, int capacityOfEngine, String registrationNumber,
+               int carryingCapacity) {
+        this.amountOfWheels = amountOfWheels;
+        this.amountOfPassengers = amountOfPassengers;
+        this.powerOfEngine = powerOfEngine;
+        this.colour = colour;
+        this.colours = colours;
+        this.colourStringValues = colourStringValues;
+        this.vinNumber = vinNumber;
+        this.capacityOfEngine = capacityOfEngine;
+        this.registrationNumber = registrationNumber;
+        this.carryingCapacity = carryingCapacity;
+    }
+
+    public String getVinNumber() {
+        return vinNumber;
+    }
+
+    public int getCapacityOfEngine() {
+        return capacityOfEngine;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public int getCarryingCapacity() {
+        return carryingCapacity;
     }
 
     public int getAmountOfWheels() {
@@ -54,6 +89,7 @@ public class Car {
     public void setAmountOfPassengers(int amountOfPassengers) {
         this.amountOfPassengers = amountOfPassengers;
     }
+
     public String stringComparer(String firstString) {
         //creating new table with colour string values
         for (int i=0; i<colours.length; i++) {

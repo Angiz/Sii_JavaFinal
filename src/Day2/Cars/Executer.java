@@ -5,26 +5,28 @@ import java.util.Scanner;
 public class Executer {
 
     public static void main(String[] args) {
-        Colours c;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Amount of wheels: ");
-        int amountOfWheels = scanner.nextInt();
-        System.out.println("Amount of passengers: ");
-        int amountOfPassengers = scanner.nextInt();
-        System.out.println("PowerOfEngine: ");
-        float powerOfEngine = scanner.nextFloat();
-        System.out.println("Colour: ");
-        String colour = scanner.next().toLowerCase();
-
-
         Car car = new Car(7, 5);
         Car truck = new Car(12, 2, -125.34f);
         Car car2 = new Car(4, 5, -143.55f, Colours.BLUE.getProperString());
+        System.out.println(manualCarCreator(scanner));
+    }
+
+    public static Car manualCarCreator(Scanner sc) {
+        System.out.println("Amount of wheels: ");
+        int amountOfWheels = sc.nextInt();
+        System.out.println("Amount of passengers: ");
+        int amountOfPassengers = sc.nextInt();
+        System.out.println("PowerOfEngine: ");
+        float powerOfEngine = sc.nextFloat();
+        System.out.println("Colour: ");
+        String colour = sc.next().toLowerCase();
+
         Car scannerCar = new Car(amountOfWheels, amountOfPassengers, powerOfEngine);
         String newColour = scannerCar.stringComparer(colour);
         scannerCar.setColour(newColour);
 
-
-        System.out.println(scannerCar);
+        return scannerCar;
     }
+
 }
