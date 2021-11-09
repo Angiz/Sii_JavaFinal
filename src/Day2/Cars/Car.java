@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Car {
     private int amountOfWheels;
     private int amountOfPassengers;
-    private float powerOfEngine;
+    private int powerOfEngine;
     private String colour;
     Colours[] colours = Colours.values();
     String colourStringValues[] = new String[colours.length];
@@ -25,30 +25,26 @@ public class Car {
         this.amountOfPassengers = amountOfPassengers < 0 ? -amountOfPassengers : amountOfPassengers;
     }
 
-    public Car(int amountOfWheels, int amountOfPassengers, float powerOfEngine) {
+    public Car(int amountOfWheels, int amountOfPassengers, int powerOfEngine) {
         this(amountOfWheels, amountOfPassengers);
         this.powerOfEngine = powerOfEngine < 0 ? -powerOfEngine : powerOfEngine;
     }
 
-    public Car(int amountOfWheels, int amountOfPassengers, float powerOfEngine, String colour) {
+    public Car(int amountOfWheels, int amountOfPassengers, int powerOfEngine, String colour) {
         this(amountOfWheels, amountOfPassengers, powerOfEngine);
         this.colour = colour;
     }
 
-    public Car(int amountOfWheels, int amountOfPassengers, float powerOfEngine, String colour, Colours[] colours,
-               String[] colourStringValues, String vinNumber, int capacityOfEngine, String registrationNumber,
-               int carryingCapacity) {
-        this.amountOfWheels = amountOfWheels;
-        this.amountOfPassengers = amountOfPassengers;
-        this.powerOfEngine = powerOfEngine;
-        this.colour = colour;
-        this.colours = colours;
-        this.colourStringValues = colourStringValues;
-        this.vinNumber = vinNumber;
-        this.capacityOfEngine = capacityOfEngine;
-        this.registrationNumber = registrationNumber;
-        this.carryingCapacity = carryingCapacity;
+    public Car(int i) {
+        this.amountOfWheels = (int) (Math.random() * (12-4)+4);
+        this.amountOfPassengers = (int)(Math.random() * (40-2)+2);
+        this.powerOfEngine = (int) (Math.random() * (120-100) + 100);
+        this.vinNumber = String.format("VJX0%05d23E", i);
+        this.capacityOfEngine = (int) (Math.random() * (120-100) + 100);
+        this.registrationNumber = String.format("ZS%02dA", i);
+        this.carryingCapacity = (int) (Math.random() * (120-100) + 100);
     }
+
 
     public String getVinNumber() {
         return vinNumber;
@@ -86,10 +82,6 @@ public class Car {
         this.colour = colour;
     }
 
-    public void setAmountOfPassengers(int amountOfPassengers) {
-        this.amountOfPassengers = amountOfPassengers;
-    }
-
     public String stringComparer(String firstString) {
         //creating new table with colour string values
         for (int i=0; i<colours.length; i++) {
@@ -107,16 +99,17 @@ public class Car {
         return firstString;
     }
 
-
     @Override
-        public String toString () {
-            return "Car{" +
-                    "amountOfWheels=" + amountOfWheels +
-                    ", amountOfPassengers=" + amountOfPassengers +
-                    ", powerOfEngine=" + powerOfEngine +
-                    ", colour='" + colour + '\'' +
-                    '}';
-        }
-
-
+    public String toString() {
+        return "Car{" +
+                "amountOfWheels=" + amountOfWheels +
+                ", amountOfPassengers=" + amountOfPassengers +
+                ", powerOfEngine=" + powerOfEngine +
+                ", colour='" + colour + '\'' +
+                ", vinNumber='" + vinNumber + '\'' +
+                ", capacityOfEngine=" + capacityOfEngine +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", carryingCapacity=" + carryingCapacity +
+                '}';
+    }
 }
