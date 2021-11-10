@@ -1,4 +1,4 @@
-package Day2.Cars;
+package Homework.Cars;
 
 public enum Colours {
     WHITE("white"), BLUE("blue"), BLACK("black"), RED("red"),

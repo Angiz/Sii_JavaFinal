@@ -1,4 +1,4 @@
-package Day2.Cars;
+package Homework.Cars;
 
 import java.util.Arrays;
 
