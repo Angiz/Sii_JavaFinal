@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class Faculty {
     private int maxStudents;
-    private int amountOfStudents;
     private String name;
-    Faculty[] listOfFaculties = new Faculty[maxStudents];
+    ArrayList <Student> listOfStudents;
 
-    public Faculty(int maxStudents, int amountOfStudents, String name) {
+    public Faculty(int maxStudents, String name, ArrayList<Student> listOfStudents) {
         this.maxStudents = maxStudents;
-        this.amountOfStudents = amountOfStudents;
         this.name = name;
+        this.listOfStudents = listOfStudents;
     }
+
 
     public int getMaxStudents() {
         return maxStudents;
@@ -22,19 +22,36 @@ public class Faculty {
         return name;
     }
 
-    public void addStudent(ArrayList <Faculty> f) {
-        // do sth
+    public void addStudent(Student s) {
+        if (listOfStudents.size() > maxStudents) {
+            System.out.println("Maximum of students exceed!");
+        }
+        else
+            listOfStudents.add(s);
     }
 
-    public void removeStudent(ArrayList <Faculty> f) {
-        // do sth
+    public void removeStudent(Student s) {
+        if (listOfStudents.contains(s)) {
+            listOfStudents.remove(s);
+        }
+        else {
+            System.out.println("Student not found");
+        }
     }
 
-    public int getAmountOfStudents() {
-        return amountOfStudents;
+
+    public static void transferStudent(Faculty from, Faculty to, Student s) {
+        from.removeStudent(s);
+        to.addStudent(s);
     }
 
-    public void transferStudent(Faculty from, Faculty to, Student s) {
-        //do sth
+
+    @Override
+    public String toString() {
+        return "Faculty{" +
+                "maxStudents=" + maxStudents +
+                ", name='" + name + '\'' +
+                ", listOfStudents=" + listOfStudents +
+                '}';
     }
 }
