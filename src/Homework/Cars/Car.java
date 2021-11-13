@@ -55,9 +55,9 @@ public class Car {
     public Car(int amountOfWheels, int amountOfPassengers, int powerOfEngine,  int valuesForVin, int valuesForRegistrationNumbers,
                int capacityOfEngine,  int carryingCapacity) {
         this(amountOfWheels, amountOfPassengers, powerOfEngine);
-        this.vinNumber = String.format("VJX0%05d23E", valuesForVin);
+        this.vinNumber = String.format("VJX0%05d23E", valuesForVin); //can be made with substring() method
         this.capacityOfEngine = capacityOfEngine;
-        this.registrationNumber = String.format("ZS%02dA", valuesForRegistrationNumbers);
+        this.registrationNumber = String.format("ZS%02dA", valuesForRegistrationNumbers); //can be made with substring() method
         this.carryingCapacity = carryingCapacity;
     }
 
