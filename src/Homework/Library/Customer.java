@@ -5,12 +5,13 @@ import java.util.List;
 
 public abstract class Customer {
     List<Book> listOfPossessedBooks = new ArrayList<>();
+    private int maxBooks;
+    private int maxBranchBooks;
     public abstract void putPenalty();
 
-    public void returnABook(Book b, Department d) {
-        listOfPossessedBooks.remove(b);
-        d.availableBooks.add(b);
-
+    public Customer(int maxBooks, int maxBranchBooks) {
+        this.maxBooks = maxBooks;
+        this.maxBranchBooks = maxBranchBooks;
     }
 
     public List<Book> getListOfPossessedBooks() {

@@ -51,7 +51,7 @@ public class Executer {
         Car[] cars = new Car[numberOfCars];
         for (i=0; i<numberOfCars; i++) {
             cars[i] = new Car(i);
-            System.out.println(cars[i]);
+            //System.out.println(cars[i]);
         }
     }
 

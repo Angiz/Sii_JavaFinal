@@ -14,6 +14,10 @@ public class Car {
     private String registrationNumber;
     private int carryingCapacity;
 
+
+    public Car() {
+    }
+
     public Car(int amountOfWheels, int amountOfPassengers) {
         if (amountOfWheels < 4) {
             amountOfWheels = 4;
@@ -59,6 +63,9 @@ public class Car {
         this.capacityOfEngine = capacityOfEngine;
         this.registrationNumber = String.format("ZS%02dA", valuesForRegistrationNumbers); //can be made with substring() method
         this.carryingCapacity = carryingCapacity;
+    }
+
+    public Car(String s, String black, Engine engine) {
     }
 
 
@@ -135,4 +142,5 @@ public class Car {
                 ", carryingCapacity=" + carryingCapacity +
                 '}';
     }
+    
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Department {
     private static final int TIME_OF_CHECKOUT = 14;
+    private static final int TIME_TO_SEND_MONIT = 21;
     List<Book> availableBooks = new ArrayList<>();
     List<Customer> listOfCustomers = new ArrayList<>();
 
@@ -19,7 +20,7 @@ public class Department {
             c.getListOfPossessedBooks().add(b);
         }
         else if(!(listOfCustomers.contains(c)) && availableBooks.contains(b)) {
-          listOfCustomers.add(c);
+            listOfCustomers.add(c);
             availableBooks.remove(b);
             c.getListOfPossessedBooks().add(b);
         }
@@ -29,7 +30,6 @@ public class Department {
             availableBooks.remove(b);
             c.getListOfPossessedBooks().add(b);
         }
-
     }
 
     public void checkOutFromAnotherDepartment(Book b, Department d) {
@@ -43,6 +43,12 @@ public class Department {
             d.availableBooks.add(b);
         }
     }
+
+    public void getABookFromCustomer(Customer c, Book b, Department d) {
+        c.listOfPossessedBooks.remove(b);
+        d.availableBooks.add(b);
+    }
+
     class Branch {
 
     }

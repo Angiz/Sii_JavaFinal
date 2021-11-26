@@ -6,18 +6,20 @@ public class Book {
     private String author;
     private String description;
     private int timeOfCheckout;
-    private int id;
+    private String  id;
+    private int price;
     Department ownerDepartment;
 
     public Book(Department.Branch branch, Category category, String author, String description, int timeOfCheckout,
-                int id, Department ownerDepartment) {
+                String id, Department ownerDepartment, int price) {
         this.branch = branch;
         this.category = category;
         this.author = author;
         this.description = description;
         this.timeOfCheckout = timeOfCheckout;
-        this.id = id;
+        this.id = ownerDepartment + id;
         this.ownerDepartment = ownerDepartment;
+        this.price = price;
     }
 
     public Department.Branch getBranch() {
@@ -38,6 +40,14 @@ public class Book {
 
     public int getTimeOfCheckout() {
         return timeOfCheckout;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     public Department getOwnerDepartment() {
