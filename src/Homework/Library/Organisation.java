@@ -7,10 +7,9 @@ public class Organisation extends Customer {
     }
 
     @Override
-    public void putPenalty() {
+    public void getPenalty() {
         int sumPenalty = 0;
         this.getListOfPossessedBooks().forEach((Book b) -> b.getCategory().getProcPenalty());
-        //if
 
     }
 }

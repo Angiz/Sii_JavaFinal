@@ -7,7 +7,7 @@ public abstract class Customer {
     List<Book> listOfPossessedBooks = new ArrayList<>();
     private int maxBooks;
     private int maxBranchBooks;
-    public abstract void putPenalty();
+    public abstract void getPenalty();
 
     public Customer(int maxBooks, int maxBranchBooks) {
         this.maxBooks = maxBooks;

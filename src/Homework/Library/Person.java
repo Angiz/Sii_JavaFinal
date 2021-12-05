@@ -9,7 +9,7 @@ public class Person extends Customer {
     }
 
     @Override
-    public void putPenalty() {
+    public void getPenalty() {
 
     }
 }
